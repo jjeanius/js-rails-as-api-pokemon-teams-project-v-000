@@ -1,7 +1,7 @@
 
-//document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init)
 
-//function init() {
+function init() {
     const BASE_URL = "http://localhost:3000"
     const TRAINERS_URL = `${BASE_URL}/trainers`
     const POKEMONS_URL = `${BASE_URL}/pokemons`
@@ -48,8 +48,8 @@
             `<li> ${pokemon.nickname} (${pokemon.species}) <button class="release" data-pokemon-id="${pokemon.id}"> Release </button></li>`
         }
 
-        mainDiv.addEventListener('click', e =>{
-            if(e.target.dataset.trainerId !== undefined) {
+            mainDiv.addEventListener('click', e =>{
+                if(e.target.dataset.trainerId !== undefined) {
                 fetch(POKEMONS_URL, {
                     method: "POST",
                     headers: {
@@ -67,4 +67,4 @@
                     e.target.parentElement.remove()
                     fetch(POKEMONS_URL + '/' + e.target.dataset.pokemonId, {method: 'DELETE'})
                    };
-                }
+                }) 
