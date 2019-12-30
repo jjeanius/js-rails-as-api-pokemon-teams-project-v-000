@@ -25,13 +25,14 @@
                <ul> ${pokiString} </ul>
                </div>`
             })
+        }
 
         mainDiv.addEventListener('click', e=> {   // adding EventListener to DOM
             if (e.target.dataset.trainerId !== undefined) {
                 fetch(POKEMONS_URL, {
                     method: "POST",
                     headers: {
-                        'Content-Type': 'applicaiton/json'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         trainer_id: e.target.dataset.trainerId
@@ -61,8 +62,9 @@
                 .then(res => res.json())
                 .then(addPokemon)
                 }
-                if (e.target.dataset.pokemonId !==undefined){
+
+                if (e.target.dataset.pokemonId !== undefined){
                     e.target.parentElement.remove()
                     fetch(POKEMONS_URL + '/' + e.target.dataset.pokemonId, {method: 'DELETE'})
-                   })
+                   };
                 }
